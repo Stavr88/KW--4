@@ -70,8 +70,3 @@ class JSONSaver:
         with open(self.__path, encoding='utf-8') as file:
             return json.load(file)
 
-# pars = HeadHunterAPI()
-# pars.load_vacancies("Python")
-# vacances1 = pars.vacancies
-# e = JSONSaver()
-# e.add_vacancy(vacances1)
