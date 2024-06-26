@@ -21,7 +21,7 @@ class Vacancy:
         self.city = city if city else 'Город отсутствует'
 
     @classmethod
-    def cast_to_object_list(cls, vacancies: list[dict]) -> list[dict]:
+    def cast_to_object_list(cls, vacancies: list[dict]) -> list:
         """
         Метод для создания списка объектов класса
         """
@@ -59,7 +59,7 @@ class Vacancy:
             f'Сайт - {self.alternate_url}\n'
             f'Зарплата - {self.salary_from}-{self.salary_to}\n'
             f'Город - {self.city}\n'
-            )
+        )
 
 
 class JSONSaver:
