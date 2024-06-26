@@ -5,14 +5,13 @@ import pathlib
 class Vacancy:
     """
     Класс для работы с вакансиями.
-    В этом классе самостоятельно определить атрибуты,
-    такие как название вакансии, ссылка на вакансию,
-    зарплата, краткое описание или требования и т. п.
-    (всего не менее четырех атрибутов).
-    Класс должен поддерживать методы сравнения вакансий между
-    собой по зарплате и валидировать данные,
-    которыми инициализируются его атрибуты.
+
     """
+    name: str
+    alternate_url: str
+    salary_from: int
+    salary_to: int
+    city: str
 
     def __init__(self, name, alternate_url, salary_from, salary_to, city):
         self.name = name
@@ -22,7 +21,10 @@ class Vacancy:
         self.city = city if city else 'Город отсутствует'
 
     @classmethod
-    def cast_to_object_list(cls, vacancies):
+    def cast_to_object_list(cls, vacancies: list[dict]) -> list[dict]:
+        """
+        Метод для создания списка объектов класса
+        """
         list_vacanc = []
 
         for vacancy in vacancies:
@@ -37,13 +39,27 @@ class Vacancy:
         return list_vacanc
 
     def __gt__(self, other):
+        """
+        Метод для сравнения и сортировки вакансий по зарплате
+        """
         return self.salary_from > other.salary_from
 
     def __lt__(self, other):
+        """
+        Метод для сравнения и сортировки вакансий по зарплате
+        """
         return self.salary_from < other.salary_from
 
     def __str__(self):
-        return f'{self.__class__}'
+        """
+        Метод для отображения результата поиска в удобном формате
+        """
+        return (
+            f'\nДолжность - {self.name}\n'
+            f'Сайт - {self.alternate_url}\n'
+            f'Зарплата - {self.salary_from}-{self.salary_to}\n'
+            f'Город - {self.city}\n'
+            )
 
 
 class JSONSaver:
@@ -69,4 +85,3 @@ class JSONSaver:
         """
         with open(self.__path, encoding='utf-8') as file:
             return json.load(file)
-
