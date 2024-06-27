@@ -7,5 +7,3 @@ VACANCIES_PATH = Path.joinpath(DATA_PATH, 'vacancies.json')
 
 
 
-
-

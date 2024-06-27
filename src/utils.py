@@ -18,3 +18,4 @@ def get_vacancies_by_salary(salary_range: str, list_vacancies: list[Vacancy]) ->
         if salary_range1 <= vacancy.salary_from <= salary_range2:
             list_vacancies_by_salary.append(vacancy)
     return list_vacancies_by_salary
+
